@@ -1,0 +1,30 @@
+@baseurl = http://localhost:3000/usuarios
+@idusuario = {{allusers.response.body.users[0].id}}
+
+@gmailusers = {{criarusers.response.body.users.email}}
+
+# @name allusers
+GET {{baseurl}} HTTP/1.1
+Content-Type: application/json
+###
+# @name criarusers
+POST {{baseurl}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "a{{$randomInt 5 200000}}@gmail.com",
+    "name": "",
+    "age": "20"
+}
+###
+PUT {{baseurl}}/{{idusuario}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "{{gmailusers}}",
+    "name": "nsns",
+    "age": "{{$randomInt 5 100}}"
+}
+###
+DELETE {{baseurl}}/{{idusuario}} HTTP/1.1
+
