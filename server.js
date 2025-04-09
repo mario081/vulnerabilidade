@@ -15,13 +15,8 @@ app.post('/usuarios', async (req, res) => {
     await prisma.user.create({
         data: {
             email: req.body.email,
-<<<<<<< HEAD
-            name: req.body.name,
-            age: req.body.age
-=======
             senha: req.body.senha,
             name: req.body.name
->>>>>>> dc159dd (Vulnerabilidade)
         }
     })
     res.status(201).json(req.body)
@@ -43,14 +38,9 @@ app.put('/usuarios/:id', async (req, res) => {
             id: req.params.id
         },
         data: {
-<<<<<<< HEAD
-            email: req.body.email,
-            name: req.body.name,
-            age: req.body.age
-=======
-            senha: req.body.senha,
+senha: req.body.senha,
             name: req.body.name
->>>>>>> dc159dd (Vulnerabilidade)
+
         }
     })
 
